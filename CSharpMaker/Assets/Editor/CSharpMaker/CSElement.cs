@@ -22,7 +22,7 @@ namespace CSDocument
 
 		int NestCount(CSElement _parent, int count)
 		{
-			if (_parent == null)
+			if (_parent == null || _parent is CSGlobal)
 			{
 				return count;
 			}

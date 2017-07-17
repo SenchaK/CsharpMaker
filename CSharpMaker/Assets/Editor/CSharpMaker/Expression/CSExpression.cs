@@ -6,21 +6,21 @@ namespace CSDocument
 {
 	public class CSExpression : CSElement
 	{
-		CSExpression exp;
+		CSExpression nextExpression = null;
 		public CSExpression()
 		{
 		}
 
-		public CSExpression(CSExpression exp)
+		public CSExpression(CSExpression nextExpression)
 		{
-			this.exp = exp;
+			this.nextExpression = nextExpression;
 		}
 
 		public virtual string GetExpressionString()
 		{
-			if (this.exp != null)
+			if (this.nextExpression != null)
 			{
-				return this.exp.GetExpressionString();
+				return this.nextExpression.GetExpressionString();
 			}
 			return "";
 		}
@@ -29,7 +29,7 @@ namespace CSDocument
 		{
 			var t = this.CreateInstance<T>(args);
 			var e = this.CreateInstance<CSAsign>(t);
-			this.exp = e;
+			this.nextExpression = e;
 			return t;
 		}
 
@@ -37,7 +37,7 @@ namespace CSDocument
 		{
 			var t = this.CreateInstance<T>(args);
 			var e = this.CreateInstance<CSAdd>(t);
-			this.exp = e;
+			this.nextExpression = e;
 			return t;
 		}
 
@@ -45,35 +45,35 @@ namespace CSDocument
 		{
 			var t = this.CreateInstance<T>(args);
 			var e = this.CreateInstance<CSMul>(t);
-			this.exp = e;
+			this.nextExpression = e;
 			return t;
 		}
 
 		public CSNullableOperation NullableOperation<T>(params object[] args) where T : CSExpression
 		{
 			var e = this.CreateInstance<CSNullableOperation>(this.CreateInstance<T>(args));
-			this.exp = e;
+			this.nextExpression = e;
 			return e;
 		}
 
 		public CSLiteral Literal(object value)
 		{
 			var e = this.CreateInstance<CSLiteral>(value);
-			this.exp = e;
+			this.nextExpression = e;
 			return e;
 		}
 
 		public CSNew New(string typeName)
 		{
 			var e = this.CreateInstance<CSNew>(typeName);
-			this.exp = e;
+			this.nextExpression = e;
 			return e;
 		}
 
 		public CSSymbol Symbol(string symbolName)
 		{
 			var e = this.CreateInstance<CSSymbol>(symbolName);
-			this.exp = e;
+			this.nextExpression = e;
 			return e;
 		}
 
@@ -305,13 +305,15 @@ namespace CSDocument
 
 	public class CSPriorityExpression : CSExpression
 	{
-		public CSPriorityExpression(CSExpression exp) : base(exp)
+		CSExpression innerExpression = null;
+		public CSPriorityExpression(CSExpression innerExpression) : base()
 		{
+			this.innerExpression = innerExpression;
 		}
 
 		public override string GetExpressionString()
 		{
-			var query = "(" + base.GetExpressionString() + ")";
+			var query = "(" + this.innerExpression.GetExpressionString() + ")" + base.GetExpressionString();
 			return query;
 		}
 	}

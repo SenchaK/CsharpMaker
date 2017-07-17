@@ -1,14 +1,18 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Editor/Example.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Editor/CSharpMaker/Scope/CSNamespace.cs">
     <Files>
       <File FileName="Assets/Editor/CSharpMaker/CSharpMaker.cs" Line="90" Column="2" />
       <File FileName="Assets/Editor/CSharpMaker/Scope/CSScope.cs" Line="48" Column="4" />
-      <File FileName="Assets/Editor/CSharpMaker/CSField.cs" Line="44" Column="2" />
+      <File FileName="Assets/Editor/CSharpMaker/CSField.cs" Line="35" Column="5" />
       <File FileName="Assets/Editor/CSharpMaker/CSComment.cs" Line="28" Column="2" />
-      <File FileName="Assets/Editor/CSharpMaker/CSElement.cs" Line="92" Column="2" />
+      <File FileName="Assets/Editor/CSharpMaker/CSElement.cs" Line="31" Column="4" />
       <File FileName="Assets/Editor/CSharpMaker/Scope/CSClass.cs" Line="104" Column="2" />
       <File FileName="Assets/Editor/CSharpMaker/Expression/CSReturn.cs" Line="37" Column="3" />
-      <File FileName="Assets/Editor/Example.cs" Line="30" Column="61" />
+      <File FileName="Assets/Editor/Example.cs" Line="26" Column="39" />
+      <File FileName="Assets/Editor/CSharpMaker/CSUsing.cs" Line="1" Column="1" />
+      <File FileName="Assets/Editor/CSharpMaker/CSInterface.cs" Line="15" Column="2" />
+      <File FileName="Assets/Editor/CSharpMaker/CSAttribute.cs" Line="37" Column="2" />
+      <File FileName="Assets/Editor/CSharpMaker/Scope/CSNamespace.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

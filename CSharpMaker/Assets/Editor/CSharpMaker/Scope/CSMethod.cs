@@ -107,5 +107,10 @@ namespace CSDocument
 		{
 			return this.CreateInstance<CSExpression>();
 		}
+
+		public T CreateExpression<T>(params object[] args) where T : CSExpression
+		{
+			return this.CreateInstance<T>(args);
+		}
 	}
 }
