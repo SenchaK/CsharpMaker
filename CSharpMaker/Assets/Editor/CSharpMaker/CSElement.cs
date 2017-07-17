@@ -12,21 +12,12 @@ namespace CSDocument
 	{
 		protected System.IO.TextWriter w;
 		public string name = "";
-		public List<CSElement> childs = new List<CSElement>();
 		public CSElement parent = null;
 		public CSComment comment = null;
 		public int line = 0;
 
 		public CSElement()
 		{
-		}
-
-		public T AddChild<T>(params object[] args) where T : CSElement
-		{
-			var child = this.CreateInstance<T>(args) as T;
-			child.SetParent(this);
-			this.childs.Add(child);
-			return child;
 		}
 
 		int NestCount(CSElement _parent, int count)
@@ -56,10 +47,6 @@ namespace CSDocument
 
 		public virtual void Write()
 		{
-			foreach (var child in this.childs)
-			{
-				child.Write();
-			}
 		}
 
 		public void WriteNewLine()
@@ -78,21 +65,10 @@ namespace CSDocument
 			}
 		}
 
-		public void StartScope(string scopeLabel)
-		{
-			this.WriteLine(scopeLabel);
-			this.WriteLine("{");
-		}
-
 		public void Comment(string comment)
 		{
 			this.comment = this.CreateInstance<CSComment>(comment);
 			this.comment.parent = this.parent;
-		}
-
-		public void EndScope()
-		{
-			this.WriteLine("}");
 		}
 
 		public void WriteLine(string s)
@@ -104,36 +80,6 @@ namespace CSDocument
 				tab += "\t";
 			}
 			this.w.WriteLine(tab + s);
-		}
-
-		public string AccessLevelToString(AccessLevel level)
-		{
-			switch (level)
-			{
-				case AccessLevel.Private:
-				default:
-					return "";
-				case AccessLevel.Public:
-					return "public";
-				case AccessLevel.Protected:
-					return "protected";
-			}
-		}
-
-		public string MethodKeywordToString(MethodKeyword keyword)
-		{
-			switch (keyword)
-			{
-				case MethodKeyword.Nothing:
-				default:
-					return "";
-				case MethodKeyword.Virtual:
-					return "virtual";
-				case MethodKeyword.Abstract:
-					return "abstract";
-				case MethodKeyword.Override:
-					return "override";
-			}
 		}
 
 		public T CreateInstance<T>(params object[] args) where T : CSElement

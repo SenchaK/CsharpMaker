@@ -23,6 +23,39 @@ namespace CSDocument
 		Override,
 	}
 
+	public static class CsharpMakerExtension
+	{
+		public static string AccessLevelToString(this AccessLevel level)
+		{
+			switch (level)
+			{
+				case AccessLevel.Private:
+				default:
+					return "";
+				case AccessLevel.Public:
+					return "public";
+				case AccessLevel.Protected:
+					return "protected";
+			}
+		}
+
+		public static string MethodKeywordToString(this MethodKeyword keyword)
+		{
+			switch (keyword)
+			{
+				case MethodKeyword.Nothing:
+				default:
+					return "";
+				case MethodKeyword.Virtual:
+					return "virtual";
+				case MethodKeyword.Abstract:
+					return "abstract";
+				case MethodKeyword.Override:
+					return "override";
+			}
+		}
+	}
+
 	public class CSharpMaker : IDisposable
 	{
 		System.IO.TextWriter writer;

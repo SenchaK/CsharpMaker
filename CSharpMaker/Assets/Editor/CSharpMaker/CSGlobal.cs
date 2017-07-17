@@ -7,7 +7,7 @@ using System.Linq;
 
 
 namespace CSDocument {
-	public class CSGlobal : CSElement {
+	public class CSGlobal : CSScope {
 		public CSGlobal (TextWriter w) {
 			this.w = w;
 		}

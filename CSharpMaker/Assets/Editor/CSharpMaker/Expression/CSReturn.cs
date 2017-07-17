@@ -10,7 +10,6 @@ namespace CSDocument
 {
 	public class CSReturn : CSExpression
 	{
-		public CSExpression exp = null;
 		public bool isYield = false;
 
 		public CSReturn()
@@ -31,23 +30,9 @@ namespace CSDocument
 			}
 
 			query += "return ";
-			if (this.exp != null)
-			{
-				query += this.exp.GetExpressionString();
-			}
-			else
-			{
-				query += "null";
-			}
+			query += base.GetExpressionString();
 			query += ";";
 			this.WriteLine(query);
-		}
-
-		public CSLiteral Literal(object value)
-		{
-			var e = this.CreateInstance<CSLiteral>(value);
-			this.exp = e;
-			return e;
 		}
 	}
 }

@@ -37,7 +37,7 @@ namespace CSDocument
 		public override void Write()
 		{
 			this.WriteComment();
-			string query = AccessLevelToString(this.accessLevel);
+			string query = this.accessLevel.AccessLevelToString();
 			if (!string.IsNullOrEmpty(query))
 			{
 				query += " ";
@@ -48,7 +48,7 @@ namespace CSDocument
 			}
 			if (this.keyword != MethodKeyword.Nothing)
 			{
-				query += MethodKeywordToString(this.keyword) + " ";
+				query += this.keyword.MethodKeywordToString() + " ";
 			}
 			query += this.type + " " + this.name + "(";
 

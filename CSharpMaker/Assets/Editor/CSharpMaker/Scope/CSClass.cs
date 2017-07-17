@@ -60,7 +60,7 @@ namespace CSDocument
 			{
 				attribute.Write();
 			}
-			string s = AccessLevelToString(this.accessLevel);
+			string s = this.accessLevel.AccessLevelToString();
 			if (!string.IsNullOrEmpty(s))
 			{
 				s += " ";
