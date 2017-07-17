@@ -51,8 +51,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Editor\CSharpMaker\CSAttribute.cs" />
+     <Compile Include="Assets\Editor\CSharpMaker\CSComment.cs" />
      <Compile Include="Assets\Editor\CSharpMaker\CSElement.cs" />
-     <Compile Include="Assets\Editor\CSharpMaker\CSMaker.cs" />
+     <Compile Include="Assets\Editor\CSharpMaker\CSField.cs" />
+     <Compile Include="Assets\Editor\CSharpMaker\CSGlobal.cs" />
+     <Compile Include="Assets\Editor\CSharpMaker\CSharpMaker.cs" />
+     <Compile Include="Assets\Editor\CSharpMaker\CSInterface.cs" />
+     <Compile Include="Assets\Editor\CSharpMaker\CSUsing.cs" />
      <Compile Include="Assets\Editor\CSharpMaker\Expression\CSExpression.cs" />
      <Compile Include="Assets\Editor\CSharpMaker\Expression\CSReturn.cs" />
      <Compile Include="Assets\Editor\CSharpMaker\Scope\CSClass.cs" />
