@@ -272,6 +272,7 @@ namespace CSDocument
 					query = string.Format("{0}", value);
 				}
 			}
+			query += base.GetExpressionString();
 			return query;
 		}
 	}

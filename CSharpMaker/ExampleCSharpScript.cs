@@ -14,7 +14,7 @@
 			{
 				var sample01 = 0;
 				var sample02 = sample01 + sample01;
-				Debug.Log("Hello World!!");
+				Debug.Log("Hello" + "World!!");
 			}
 		}
 	}

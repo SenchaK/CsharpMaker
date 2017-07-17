@@ -25,7 +25,7 @@ public class Example
 			var method01 = autoCreatedClass.Method("Method01", "void", CSDocument.AccessLevel.Public, CSDocument.MethodKeyword.Nothing);
 			method01.Var("sample01").Literal(0);
 			method01.Var("sample02").Symbol("sample01").Add<CSSymbol>("sample01");
-			method01.Symbol("Debug").CallMethod("Log").AddArgument<CSLiteral>("Hello World!!");
+			method01.Symbol("Debug").CallMethod("Log").AddArgument<CSLiteral>("Hello").Add<CSLiteral>("World!!");
 
 			maker.Make();
 		}
