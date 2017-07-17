@@ -32,6 +32,13 @@ namespace CSDocument
 			return e;
 		}
 
+		public CSAdd Add<T>(params object[] args) where T : CSExpression
+		{
+			var e = this.CreateInstance<CSAdd>(this.CreateInstance<T>(args));
+			this.exp = e;
+			return e;
+		}
+
 		public CSNullableOperation NullableOperation<T>(params object[] args) where T : CSExpression
 		{
 			var e = this.CreateInstance<CSNullableOperation>(this.CreateInstance<T>(args));
@@ -52,6 +59,14 @@ namespace CSDocument
 			this.exp = e;
 			return e;
 		}
+
+		public CSSymbol Symbol(string symbolName)
+		{
+			var e = this.CreateInstance<CSSymbol>(symbolName);
+			this.exp = e;
+			return e;
+		}
+
 	}
 
 
@@ -115,6 +130,47 @@ namespace CSDocument
 		public override string GetExpressionString()
 		{
 			return " = " + base.GetExpressionString();
+		}
+	}
+
+	public class CSAdd : CSExpression
+	{
+		public CSAdd(CSExpression exp) : base(exp)
+		{
+		}
+
+		public override void Write()
+		{
+			this.WriteLine(this.GetExpressionString() + ";");
+		}
+
+		public override string GetExpressionString()
+		{
+			return " + " + base.GetExpressionString();
+		}
+	}
+
+
+	public class PriorityExpression : CSExpression
+	{
+		public delegate void InnerExpressionDelegate(CSExpression exp);
+		InnerExpressionDelegate func = null;
+
+		[Obsolete("Dont Call this Method!!", true)]
+		public PriorityExpression(InnerExpressionDelegate func)
+		{
+			this.func = func;
+		}
+
+		public override void Write()
+		{
+			this.WriteLine(this.GetExpressionString() + ";");
+		}
+
+		public override string GetExpressionString()
+		{
+			this.func?.Invoke(this);
+			return base.GetExpressionString();
 		}
 	}
 
