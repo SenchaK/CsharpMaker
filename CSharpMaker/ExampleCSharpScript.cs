@@ -14,6 +14,7 @@
 			{
 				var sample01 = 0;
 				var sample02 = sample01 + sample01;
+				sample01 = (10 + 5 * 3);
 				Debug.Log("Hello" + "World!!");
 			}
 		}

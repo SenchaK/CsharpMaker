@@ -25,18 +25,28 @@ namespace CSDocument
 			return "";
 		}
 
-		public CSAsign Asign<T>(params object[] args) where T : CSExpression
+		public T Asign<T>(params object[] args) where T : CSExpression
 		{
-			var e = this.CreateInstance<CSAsign>(this.CreateInstance<T>(args));
+			var t = this.CreateInstance<T>(args);
+			var e = this.CreateInstance<CSAsign>(t);
 			this.exp = e;
-			return e;
+			return t;
 		}
 
-		public CSAdd Add<T>(params object[] args) where T : CSExpression
+		public T Add<T>(params object[] args) where T : CSExpression
 		{
-			var e = this.CreateInstance<CSAdd>(this.CreateInstance<T>(args));
+			var t = this.CreateInstance<T>(args);
+			var e = this.CreateInstance<CSAdd>(t);
 			this.exp = e;
-			return e;
+			return t;
+		}
+
+		public T Mul<T>(params object[] args) where T : CSExpression
+		{
+			var t = this.CreateInstance<T>(args);
+			var e = this.CreateInstance<CSMul>(t);
+			this.exp = e;
+			return t;
 		}
 
 		public CSNullableOperation NullableOperation<T>(params object[] args) where T : CSExpression
@@ -150,6 +160,22 @@ namespace CSDocument
 		}
 	}
 
+	public class CSMul : CSExpression
+	{
+		public CSMul(CSExpression exp) : base(exp)
+		{
+		}
+
+		public override void Write()
+		{
+			this.WriteLine(this.GetExpressionString() + ";");
+		}
+
+		public override string GetExpressionString()
+		{
+			return " * " + base.GetExpressionString();
+		}
+	}
 
 	public class PriorityExpression : CSExpression
 	{
@@ -273,6 +299,19 @@ namespace CSDocument
 				}
 			}
 			query += base.GetExpressionString();
+			return query;
+		}
+	}
+
+	public class CSPriorityExpression : CSExpression
+	{
+		public CSPriorityExpression(CSExpression exp) : base(exp)
+		{
+		}
+
+		public override string GetExpressionString()
+		{
+			var query = "(" + base.GetExpressionString() + ")";
 			return query;
 		}
 	}

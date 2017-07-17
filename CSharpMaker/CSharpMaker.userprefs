@@ -1,5 +1,5 @@
-﻿<Properties StartupConfiguration="{F11AB3AE-7A31-0A8B-2199-1DB543E0230F}|単体テスト">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Editor/CSharpMaker/Expression/CSExpression.cs">
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Editor/Example.cs">
     <Files>
       <File FileName="Assets/Editor/CSharpMaker/CSharpMaker.cs" Line="90" Column="2" />
       <File FileName="Assets/Editor/CSharpMaker/Scope/CSScope.cs" Line="48" Column="4" />
@@ -7,10 +7,8 @@
       <File FileName="Assets/Editor/CSharpMaker/CSComment.cs" Line="28" Column="2" />
       <File FileName="Assets/Editor/CSharpMaker/CSElement.cs" Line="92" Column="2" />
       <File FileName="Assets/Editor/CSharpMaker/Scope/CSClass.cs" Line="104" Column="2" />
-      <File FileName="Assets/Editor/CSharpMaker/Scope/CSMethod.cs" Line="100" Column="3" />
       <File FileName="Assets/Editor/CSharpMaker/Expression/CSReturn.cs" Line="37" Column="3" />
-      <File FileName="Assets/Editor/Example.cs" Line="27" Column="52" />
-      <File FileName="Assets/Editor/CSharpMaker/Expression/CSExpression.cs" Line="154" Column="42" />
+      <File FileName="Assets/Editor/Example.cs" Line="30" Column="61" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
@@ -18,6 +16,5 @@
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp-Editor PreferredExecutionTarget="MonoDevelop.Default" />
   <MultiItemStartupConfigurations />
 </Properties>

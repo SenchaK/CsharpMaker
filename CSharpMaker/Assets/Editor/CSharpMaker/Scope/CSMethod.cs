@@ -102,5 +102,10 @@ namespace CSDocument
 		{
 			return this.AddChild<CSSymbol>(name);
 		}
+
+		public CSExpression CreateExpression()
+		{
+			return this.CreateInstance<CSExpression>();
+		}
 	}
 }
